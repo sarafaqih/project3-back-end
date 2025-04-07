@@ -20,6 +20,9 @@ app.use(express.json());
 app.use(logger('dev'));
 
 // Routes go here
+
+
+
 app.use("/auth",authRoutes)
 
 app.use("/test-jwt",verifyToken,testJwtRouter)

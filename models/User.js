@@ -11,7 +11,20 @@ const userSchema = new Schema({
     hashedPassword:{
         type:String,
         required:[true,"Password is Required"]
-    }
+    },
+    role:{
+        type:String,
+        enum:["admin", "customer"],
+        // required:true,     
+    },
+    gender: {
+        type:String,
+        enum:["female", "male"]
+    },
+    ContactNo: {
+        type: Number,
+        // required: true,
+      },
 })
 
 const User = model("User",userSchema)
