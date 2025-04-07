@@ -15,7 +15,7 @@ const userSchema = new Schema({
     role:{
         type:String,
         enum:["admin", "customer"],
-        // required:true,     
+        required:true,     
     },
     gender: {
         type:String,
@@ -23,7 +23,9 @@ const userSchema = new Schema({
     },
     ContactNo: {
         type: Number,
-        // required: true,
+        min:10000000,
+        max: 99999999,
+        required: true,
       },
 })
 

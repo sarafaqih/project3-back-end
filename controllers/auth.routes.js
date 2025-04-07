@@ -14,7 +14,10 @@ router.post("/sign-up",async(req,res)=>{
         }
         const createdUser = await User.create({
             username:req.body.username,
-            hashedPassword: bcrypt.hashSync(req.body.password,12)
+            hashedPassword: bcrypt.hashSync(req.body.password,12),
+            role: req.body.role,
+            ContactNo: req.body.ContactNo,
+            gender: req.body.gender
         })
         console.log(createdUser)
 
@@ -22,6 +25,7 @@ router.post("/sign-up",async(req,res)=>{
         const convertedObject = createdUser.toObject()
         delete convertedObject.hashedPassword
         res.json(convertedObject)
+
 
     }
     catch(error){
