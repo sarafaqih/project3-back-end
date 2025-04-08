@@ -11,7 +11,7 @@ const reservationSchema = mongoose.Schema({
     ref: "User",
     required: true,
   },
-  Stadium: {
+  stadium: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Stadium",
     required: true,

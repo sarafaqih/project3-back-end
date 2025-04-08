@@ -15,14 +15,15 @@ const stadiumSchema = mongoose.Schema({
     required: true,
   },
   openingTime: {
-    type: number,
+    type: Number,
     required: true,
   },
   closingTime: {
-    type: number,
+    type: Number,
     required: true,
   },
   Facilities: {
+    type: String,
     enum: [
       "prayer room",
       "toilets",
@@ -46,23 +47,27 @@ const stadiumSchema = mongoose.Schema({
   },
   StadiumNature: {
     type: String,
-    enum: [outdoor, indoor],
+    enum: ["outdoor", "indoor"],
     required: true,
   },
   playerGender: {
     type: String,
-    enum: [female, male, mixed],
+    enum: ["female", "male", "both"],
     required: true,
   },
   notes: {
     type: String,
   },
-
   addedAt: {
     type: Date,
     required: true,
     default: Date.now,
   },
+  addedBy:{
+    type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+  }
 });
 
 const Stadium = mongoose.model("Stadium", stadiumSchema);
