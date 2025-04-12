@@ -15,22 +15,22 @@ const stadiumSchema = mongoose.Schema({
     required: true,
   },
   openingTime: {
-    type: Number,
+    type: String,
     required: true,
   },
   closingTime: {
-    type: Number,
+    type: String,
     required: true,
   },
   Facilities: {
     type: String,
     enum: [
-      "prayer room",
+      "prayer-room",
       "toilets",
       "shower",
-      "locker area",
-      "coffee shop",
-      "free ball",
+      "locker-area",
+      "coffee-shop",
+      "free-ball",
       "water",
     ],
   },

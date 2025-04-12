@@ -11,11 +11,13 @@ const router = express.Router();
 
 router.post("/", verifyToken, async (req, res) => {
     try {
+      console.log(req.body)
       req.body.addedBy = req.user._id;
       const stadium = await Stadium.create(req.body);
       stadium._doc.addedBy = req.user;
       res.status(201).json(stadium);
     } catch (err) {
+      console.log(err)
       res.status(500).json({ err: err.message });
     }
   })
@@ -58,12 +60,10 @@ router.post("/", verifyToken, async (req, res) => {
   });
 
 
-
-
-
   router.put("/:stadiumId", verifyToken, async (req, res) => {
     try {
       // Find the stadium:
+
       const stadium = await Stadium.findById(req.params.stadiumId).populate("addedBy");
 
     //   console.log(stadium.addedBy.role)
@@ -83,7 +83,7 @@ router.post("/", verifyToken, async (req, res) => {
       );
   
       // Append req.user to the author property: !!!!!!!!!!!!!!!!!!!!!
-      updatedStadium._doc.addedBy = req.user;
+      //updatedStadium._doc.addedBy = req.user;
   
       // Issue JSON response:
       res.status(200).json(updatedStadium);

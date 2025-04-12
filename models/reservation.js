@@ -17,15 +17,19 @@ const reservationSchema = mongoose.Schema({
     required: true,
   },
   reserveFrom:{
-    type:Number,
+    type:String,
     required:true,
   },
   reserveTo:{
-    type:Number,
+    type:String,
     required:true,
   },
   totallPrice:{
     type:Number,
+    required:true
+  },
+  reservationDate:{
+    type:Date,
     required:true
   }
 });
