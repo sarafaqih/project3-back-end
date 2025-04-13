@@ -7,6 +7,7 @@ const router = express.Router();
 
 
 
+
 //Stadium Routes Section ----------------------------------------------------------------------
 
 router.post("/", verifyToken, async (req, res) => {
@@ -25,7 +26,7 @@ router.post("/", verifyToken, async (req, res) => {
 
 
 
-  router.get("/", verifyToken, async (req, res) => {
+  router.get("/", verifyToken,async (req, res) => {
     try {
       const stadiums = await Stadium.find({})
         .populate("addedBy")
