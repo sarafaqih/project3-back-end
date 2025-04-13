@@ -8,6 +8,8 @@ const logger = require('morgan');
 const testJwtRouter = require("./controllers/test-jwt")
 const authRoutes = require("./controllers/auth.routes")
 const verifyToken = require("./middleware/verify-token")
+const allRouter = require("./controllers/all.routes")
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -20,11 +22,14 @@ app.use(express.json());
 app.use(logger('dev'));
 
 // Routes go here
+
+
+
 app.use("/auth",authRoutes)
 
 app.use("/test-jwt",verifyToken,testJwtRouter)
 
-
+app.use("/stadium", allRouter)
 
 app.listen(3000, () => {
   console.log('The express app is ready!');
