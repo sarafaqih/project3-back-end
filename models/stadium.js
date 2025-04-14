@@ -23,7 +23,7 @@ const stadiumSchema = mongoose.Schema({
     required: true,
   },
   Facilities: {
-    type: String,
+    type: [String],
     enum: [
       "prayer-room",
       "toilets",
